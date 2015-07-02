@@ -3,11 +3,19 @@
 $(document).ready(function() {
 	var num = 0;
 	$('#clickThis').click(function() {
-		num += 1;
+		
+        if(num == 0){
+        var time = 60, //in seconds
+            display = $('#time'),
+            button = $('#startAndStop');
+        startTimer(time, display, button);
+        }
+        num += 1;
 		$('#number').html(function(i, val) {
 			return +val+1
 		});
 	})
+
 });
 
 //TIMER 
@@ -32,12 +40,3 @@ function startTimer(duration, display, button) {
         }
     }, 1000);
 }
-
-jQuery(function ($) {
-    $( "#startAndStop" ).click(function() {
-	   var time = 60, //in seconds
-            display = $('#time'),
-            button = $('#startAndStop');
-        startTimer(time, display, button);
-    });
-});
