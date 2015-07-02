@@ -21,12 +21,11 @@ function startTimer(duration, display, button) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
         if(seconds == 00){
 			display.text("TIME UP!");
+            button.text("PLAY AGAIN!");
         }
         else{
-        	display.text(minutes + ":" + seconds);
+        	display.text("You have " + minutes + ":" + seconds + " seconds!");
         }
-        	
-        button.text("RESET");
         if (--timer < 0) {
             timer = duration;
         }
@@ -34,11 +33,10 @@ function startTimer(duration, display, button) {
 }
 
 jQuery(function ($) {
-$( "#startAndStop" ).click(function() {
-	var time = 10, //in seconds
-        display = $('#time'),
-        button = $('#startAndStop');
-    startTimer(time, display, button);
-});
-
+    $( "#startAndStop" ).click(function() {
+	   var time = 60, //in seconds
+            display = $('#time'),
+            button = $('#startAndStop');
+        startTimer(time, display, button);
+    });
 });
