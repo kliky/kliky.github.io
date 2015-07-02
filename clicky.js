@@ -19,9 +19,10 @@ function startTimer(duration, display, button) {
 
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
-        if(seconds == 00){
+        if(seconds == 01){
 			display.text("TIME UP!");
             button.text("PLAY AGAIN!");
+            timer.stop();
         }
         else{
         	display.text("You have " + minutes + ":" + seconds + " seconds!");
